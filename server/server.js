@@ -60,7 +60,7 @@ app.post('/checker', upload.single('photo'), function (req, res) {
     }
 });
 
-let port = ('port', process.env.PORT || 3000);
+let port = ('port', 8080 || 8080);
 let host = ('host', '138.197.183.3' || '138.197.183.3');
 http.listen(port, host, () => {
     console.log(`Server is running on ${host}:${port}`);
