@@ -51,8 +51,8 @@ app.post('/123', upload.single('photo'), function (req, res) {
 
     }
 });
-let port = 3000
-let host = 'localhost'
+let port = ('port', process.env.PORT || 3000);
+let host = ('host', process.env.HOST || '0.0.0.0');
 http.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+    console.log(`Server is running on ${host}:${port}`);
 });
