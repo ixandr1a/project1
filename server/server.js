@@ -1,5 +1,6 @@
 const app = require('express')();
 const http = require('http').Server(app);
+let fs = require("fs");
 const bodyParser = require('body-parser');
 const multer = require('multer')
 const upload = multer({ dest: './assets/image' })

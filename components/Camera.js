@@ -33,8 +33,8 @@ export default function Cam({ history }) {
                 'content-type': 'multipart/form-data',
             },
         }).then((response) => response.text())
-            // .then((res) => setResultApi(res))
-            .catch(error => error)
+            .then((res) => setResultApi(res))
+            // .catch(error => error)
         return (
             <ImageBackground
                 source={{ uri: lastPhotoURI }}
