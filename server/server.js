@@ -24,11 +24,13 @@ app.use(bodyParser.json());
 //     res.json('xalupa eblivaya')
 //     console.log(req.body)
 // });
-app.post('/test', function (req, res) {
-    console.log(req)
-    console.log('test')
-})
-app.post('/123', upload.single('photo'), function (req, res) {
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://example.com");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+app.post('/checker', upload.single('photo'), function (req, res) {
     let name = req.file.filename;
     quickstart(name)
     async function quickstart(name) {

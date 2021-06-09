@@ -26,14 +26,15 @@ export default function Cam({ history }) {
         let type = match ? `image/${match[1]}` : `image`;
         let formData = new FormData();
         formData.append('photo', { uri: localUri, name: filename, type });
-        fetch('https://138.197.183.3:3000/test', {
+        fetch('https://138.197.183.3:3000/checker', {
             method: 'POST',
             body: formData,
             headers: {
                 'content-type': 'multipart/form-data',
             },
         }).then((response) => response.text())
-            .then((res) => setResultApi(res))
+            // .then((res) => setResultApi(res))
+            .catch(error => error)
         return (
             <ImageBackground
                 source={{ uri: lastPhotoURI }}
