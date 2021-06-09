@@ -26,7 +26,7 @@ export default function Cam({ history }) {
         let type = match ? `image/${match[1]}` : `image`;
         let formData = new FormData();
         formData.append('photo', { uri: localUri, name: filename, type });
-        fetch('https://138.197.183.3:3000/checker', {
+        fetch('http://138.197.183.3:8080/checker', {
             method: 'POST',
             body: formData,
             headers: {

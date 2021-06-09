@@ -30,10 +30,6 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.get('/', function (req, res) {
-    res.send('hi');
-});
-
 app.post('/checker', upload.single('photo'), function (req, res) {
     let name = req.file.filename;
     quickstart(name)
