@@ -7,7 +7,6 @@ const upload = multer({ dest: './assets/image' })
 
 app.use(bodyParser.json());
 
-const { exec } = require("child_process");
 
 // exec('export GOOGLE_APPLICATION_CREDENTIALS="../hidden-marker-316108-1b0311667a96.json"', (error, stdout, stderr) => {
 //     if (error) {
@@ -25,9 +24,12 @@ const { exec } = require("child_process");
 //     res.json('xalupa eblivaya')
 //     console.log(req.body)
 // });
+app.post('/test', function (req, res) {
+    console.log(req)
+    console.log('test')
+})
 app.post('/123', upload.single('photo'), function (req, res) {
     let name = req.file.filename;
-    res.send('закрыть')
     quickstart(name)
     async function quickstart(name) {
         const vision = require('@google-cloud/vision');
