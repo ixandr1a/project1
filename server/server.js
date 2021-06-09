@@ -19,7 +19,7 @@ exec('export GOOGLE_APPLICATION_CREDENTIALS="/hidden-marker-316108-1b0311667a96.
         console.log(`stderr: ${stderr}`);
         return;
     }
-    console.log(`stdout: ${stdout}`);
+    console.log(`testor: ${stdout}`);
 });
 
 // app.post('/123', function (req, res) {
