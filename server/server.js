@@ -1,5 +1,5 @@
 const app = require('express')();
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
 const http = require('http').Server(app);
 let fs = require("fs");
 const bodyParser = require('body-parser');
@@ -10,17 +10,17 @@ const upload = multer({ dest: './assets/image' })
 app.use(bodyParser.json());
 
 
-exec('export GOOGLE_APPLICATION_CREDENTIALS="/hidden-marker-316108-1b0311667a96.json"', (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`testor: ${stdout}`);
-});
+// exec('export GOOGLE_APPLICATION_CREDENTIALS="/hidden-marker-316108-1b0311667a96.json"', (error, stdout, stderr) => {
+//     if (error) {
+//         console.log(`error: ${error.message}`);
+//         return;
+//     }
+//     if (stderr) {
+//         console.log(`stderr: ${stderr}`);
+//         return;
+//     }
+//     console.log(`testor: ${stdout}`);
+// });
 
 // app.post('/123', function (req, res) {
 //     res.json('xalupa eblivaya')
