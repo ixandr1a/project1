@@ -22,10 +22,10 @@ app.use(bodyParser.json());
 //     console.log(`testor: ${stdout}`);
 // });
 
-// app.post('/123', function (req, res) {
-//     res.json('xalupa eblivaya')
-//     console.log(req.body)
-// });
+app.post('/123', function (req, res) {
+    res.json('xalupa eblivaya')
+    console.log(req.body)
+});
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://example.com");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
