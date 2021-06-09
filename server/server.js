@@ -10,7 +10,7 @@ const upload = multer({ dest: './assets/image' })
 app.use(bodyParser.json());
 
 
-exec('export GOOGLE_APPLICATION_CREDENTIALS="../hidden-marker-316108-1b0311667a96.json"', (error, stdout, stderr) => {
+exec('export GOOGLE_APPLICATION_CREDENTIALS="/hidden-marker-316108-1b0311667a96.json"', (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
