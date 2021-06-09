@@ -1,11 +1,29 @@
 {
+  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
+    "@google-cloud/vision": "^2.3.3",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "expo": "~41.0.0",
     "expo-camera": "~11.0.3",
+    "expo-font": "~9.1.0",
+    "expo-status-bar": "~1.0.3",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "native-base": "^2.15.2",
+    "node-fetch": "^2.6.1",
     "react": "16.13.1",
+    "react-cloud-vision-api": "^0.3.0",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-axios": "^0.17.1",
+    "react-native-camera": "^3.44.1",
+    "react-native-cloud-vision-api": "^0.2.1",
+    "react-native-fetch-blob": "^0.10.8",
+    "react-native-web": "~0.13.12",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-native": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
@@ -16,6 +34,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "node": "node server/server.js"
   }
 }

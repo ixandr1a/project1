@@ -1,103 +1,66 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
-import { Camera } from "expo-camera";
-import CameraPermissionsWrapper from './CameraPermissionsWrapper';
-
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { NativeRouter, Switch, Route } from 'react-router-native';
+import Camera from './components/Camera';
+import Home from './components/Home';
 export default function App() {
-  const [type, setType] = useState(Camera.Constants.Type.back);
-  const [lastPhotoURI, setLastPhotoURI] = useState(null);
-  const cameraRef = useRef(null);
-
-  if (lastPhotoURI !== null) {
-    return (
-      <ImageBackground
-        source={{ uri: lastPhotoURI }}
-        style={{
-          flex: 1,
-          backgroundColor: "transparent",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            flex: 0.2,
-            alignSelf: "flex-end",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#666",
-            marginBottom: 40,
-            marginLeft: 20,
-          }}
-          onPress={() => {
-            setLastPhotoURI(null);
-          }}
-        >
-          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>❌</Text>
-        </TouchableOpacity>
-      </ImageBackground>
-    );
-  }
+  const [text, setText] = React.useState('')
 
   return (
-    <CameraPermissionsWrapper>
-      <Camera style={{ flex: 1 }} type={type} ref={cameraRef}>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: "transparent",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              flex: 0.2,
-              alignSelf: "flex-end",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#666",
-              marginBottom: 40,
-              marginLeft: 20,
-            }}
-            onPress={() => {
-              setType(
-                type === Camera.Constants.Type.back
-                  ? Camera.Constants.Type.front
-                  : Camera.Constants.Type.back
-              );
-            }}
-          >
-            <Text style={{ fontSize: 30, padding: 10, color: "white" }}>♻</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 0.2,
-              alignSelf: "flex-end",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#666",
-              marginBottom: 40,
-              marginLeft: 20,
-            }}
-            onPress={async () => {
-              if (cameraRef.current) {
-                let photo = await cameraRef.current.takePictureAsync();
-                setLastPhotoURI(photo.uri);
-              }
-            }}
-          >
-            <Text style={{ fontSize: 30, padding: 10, color: "white" }}>
-              📸
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </Camera>
-    </CameraPermissionsWrapper>
+    <NativeRouter>
+      <View style={styles.container}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/camera" component={Camera} />
+        </Switch>
+      </View>
+    </NativeRouter>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  // loginWrapper: {
+  //   marginTop: 160
+  // },
+  // inputLoginBtn: {
+  //   backgroundColor: '#9999CC',
+  //   color: '#fff',
+  //   width: 160,
+  //   paddingVertical: 15,
+  //   borderRadius: 100,
+  //   alignSelf: 'center',
+  //   marginTop: 12,
+  //   marginBottom: 12
+  // },
+  // inputLogin: {
+  //   backgroundColor: '#fff',
+  //   marginTop: 12,
+  //   width: 290,
+  //   fontSize: 20,
+  //   paddingHorizontal: 14,
+  //   alignSelf: 'center'
+  // },
+  // loginWrapperTitle: {
+  //   marginBottom: 23,
+  //   textAlign: 'center',
+  //   fontSize: 35
+  // },
+  // logo: {
+  //   width: 415,
+  //   marginTop: 20
+  // },
+  // header: {
+  //   height: 140,
+  //   backgroundColor: '#fff',
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 1,
+  //   },
+  //   shadowOpacity: .1,
+  //   shadowRadius: 17,
+  // }
+});
