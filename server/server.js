@@ -56,8 +56,15 @@ app.post('/checker', upload.single('photo'), function (req, res) {
 
     }
 });
+
 let port = ('port', process.env.PORT || 3000);
 let host = ('host', '138.197.183.3' || '138.197.183.3');
-http.listen(port, host, () => {
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World!\n');
+});
+server.listen(port, host, () => {
     console.log(`Server is running on ${host}:${port}`);
+
 });
