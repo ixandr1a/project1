@@ -30,6 +30,9 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+app.get('/', function (req, res) {
+    res.send('hi');
+});
 
 app.post('/checker', upload.single('photo'), function (req, res) {
     let name = req.file.filename;
@@ -59,12 +62,6 @@ app.post('/checker', upload.single('photo'), function (req, res) {
 
 let port = ('port', process.env.PORT || 3000);
 let host = ('host', '138.197.183.3' || '138.197.183.3');
-http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World!\n');
-});
 http.listen(port, host, () => {
     console.log(`Server is running on ${host}:${port}`);
-
 });
